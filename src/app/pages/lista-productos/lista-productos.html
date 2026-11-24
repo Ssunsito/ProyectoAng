@@ -17,8 +17,10 @@
     <producto-card
       [producto]="producto"
       [mostrarDescripcion]="true"
+      [destacado]="producto.precio > 1000"
       (agregar)="onAgregar($event)"
       (favorito)="onFavorito($event)">
+      
     </producto-card>
   }
 </div>

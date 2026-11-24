@@ -18,6 +18,25 @@
 
 }
 
+.card.destacado {
+    border-color: #ffd700;
+    box-shadow: 0 0 0 2px #ffd700;
+}
+
+.card.destacado::before {
+    content: "⭐ Destacado";
+    position: relative;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffd700;
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .emoji {
     font-size: 3rem;
     text-align: center;

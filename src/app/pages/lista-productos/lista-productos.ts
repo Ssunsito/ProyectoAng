@@ -15,6 +15,8 @@ export class ListaProductos {
   ultimoAgregado = signal<Producto | null>(null);
   favoritos = signal<string[]>([]);
 
+  
+
   protected readonly productos = signal<Producto[]>([
     {id: 1, nombre: 'Laptop Pro 14', precio: 1250, categoria: 'Computación', stock: 5, emoji: '💻', descripcion: 'Laptop de alto rendimiento para profesionales.'},
     {id: 2, nombre: 'Smartphone X', precio: 999, categoria: 'Telefonía', stock: 0, emoji: '📱', descripcion: 'El último smartphone con cámara avanzada.'},

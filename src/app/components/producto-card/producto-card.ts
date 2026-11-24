@@ -14,6 +14,7 @@ import { Producto } from '../../models/producto';
       mostrarDescripcion = input(false);
       agregar = output<Producto>();
       favorito = output<number>();
+      destacado = input(false);
 
   onAgregar(): void {
       this.agregar.emit(this.producto());
