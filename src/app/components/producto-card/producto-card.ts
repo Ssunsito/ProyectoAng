@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Producto } from '../../models/producto';
 
 @Component({
@@ -10,10 +10,16 @@ import { Producto } from '../../models/producto';
     styleUrl: './producto-card.css',
   })
   export class ProductoCard {
-    @Input({ required: true }) producto!: Producto;
-    @Output() agregar = new EventEmitter<Producto>();
+      producto = input.required<Producto>();
+      mostrarDescripcion = input(false);
+      agregar = output<Producto>();
+      favorito = output<number>();
 
   onAgregar(): void {
-    this.agregar.emit(this.producto);
+      this.agregar.emit(this.producto());
+    }
+
+    onFavorito(): void {
+      this.favorito.emit(this.producto().id);
   }
 }

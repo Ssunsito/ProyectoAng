@@ -8,10 +8,17 @@
 }
 
 <div>
+  <app-resumen-lista
+    [total]="productos().length"
+    [favoritos]="favoritos().length">
+  </app-resumen-lista>
+
   @for (producto of productos(); track producto.id) {
     <producto-card
       [producto]="producto"
-      (agregar)="onAgregar($event)">
+      [mostrarDescripcion]="true"
+      (agregar)="onAgregar($event)"
+      (favorito)="onFavorito($event)">
     </producto-card>
   }
 </div>

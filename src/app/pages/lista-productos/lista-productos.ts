@@ -1,17 +1,19 @@
-import { Component, signal} from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ProductoCard } from '../../components/producto-card/producto-card';
 import { Producto } from '../../models/producto';
+import { ResumenLista } from '../../components/resumen-lista/resumen-lista';
 
 @Component({
   selector: 'app-lista-productos',
   standalone: true,
-  imports: [ProductoCard],
+  imports: [ProductoCard, ResumenLista],
   styleUrl: './lista-productos.css',
   templateUrl: './lista-productos.html',
 })
 export class ListaProductos {
 
   ultimoAgregado = signal<Producto | null>(null);
+  favoritos = signal<string[]>([]);
 
   protected readonly productos = signal<Producto[]>([
     {id: 1, nombre: 'Laptop Pro 14', precio: 1250, categoria: 'Computación', stock: 5, emoji: '💻', descripcion: 'Laptop de alto rendimiento para profesionales.'},
@@ -24,6 +26,15 @@ export class ListaProductos {
 
   onAgregar(producto: Producto): void {
     this.ultimoAgregado.set(producto);
+  }
+
+  onFavorito(id: number): void {
+    const idComoTexto = String(id);
+    this.favoritos.update(lista =>
+      lista.includes(idComoTexto)
+        ? lista.filter(favoritoId => favoritoId !== idComoTexto)
+        : [...lista, idComoTexto]
+    );
   }
 }
 

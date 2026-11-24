@@ -1,9 +1,14 @@
-<article class="card" [class.agotado]="producto.stock === 0">
-    <div class="emoji">{{producto.emoji}}</div>
-    <h3>{{ producto.nombre }}</h3>
-    <span class="categoria">{{ producto.categoria }}</span>
-    <p class="precio">{{ producto.precio | currency }}</p>
-    <p>Stock: {{ producto.stock }}</p>
+<article class="card" [class.agotado]="producto().stock === 0">
+    <div class="emoji">{{ producto().emoji }}</div>
+    <h3>{{ producto().nombre }}</h3>
+    <span class="categoria">{{ producto().categoria }}</span>
+    <p class="precio">{{ producto().precio | currency }}</p>
+    <p>Stock: {{ producto().stock }}</p>
 
-  <button type="button" (click)="onAgregar()" class="btn">Agregar</button>
+    @if (mostrarDescripcion()) {
+      <p>{{ producto().descripcion }}</p>
+    }
+
+    <button type="button" (click)="onAgregar()" class="btn">Agregar</button>
+    <button type="button" (click)="onFavorito()" class="btn">❤️</button>
 </article>
