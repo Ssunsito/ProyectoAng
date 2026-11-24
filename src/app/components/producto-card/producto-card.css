@@ -1,0 +1,58 @@
+.card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card.agotado {
+    opacity: 0.6;
+    
+}
+
+.emoji {
+    font-size: 3rem;
+    text-align: center;
+}
+h3 {
+    margin: 0;
+}
+
+.categoria {
+    font-size: 1rem;
+    color: var(--color-text-suave);
+}
+
+.precio {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-primario);
+}
+
+.stock {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+
+:host {
+    display: block;
+}
+
+.boton {
+    background-color: var(--color-primario);
+}

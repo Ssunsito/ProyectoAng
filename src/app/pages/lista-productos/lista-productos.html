@@ -1,0 +1,18 @@
+<h2>Productos</h2>
+
+@if (ultimoAgregado(); as productoAgregado) {
+  <p>
+    Último producto agregado:
+    {{ productoAgregado.nombre }}
+  </p>
+}
+
+<div>
+  @for (producto of productos(); track producto.id) {
+    <producto-card
+      [producto]="producto"
+      (agregar)="onAgregar($event)">
+    </producto-card>
+  }
+</div>
+
